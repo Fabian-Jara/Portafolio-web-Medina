@@ -3,9 +3,13 @@
         "astrojs",
         "fontsource",
         "Isotipo",
+        "keyframes",
+        "linecap",
+        "linejoin",
         "montserrat",
         "overscroll",
         "rgba",
+        "shadown",
         "tailwindcss",
         "webp"
     ]

@@ -2,6 +2,7 @@
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
 import { ViewTransitions } from "astro:transitions";
+import BarraDeMenu from "../components/BarraDeMenu.astro";
 interface Props {
   title: string;
   description: string;
@@ -22,6 +23,8 @@ const { title, description } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="bg-gray-100">
+    <BarraDeMenu />
+
     <slot />
 
     <script
