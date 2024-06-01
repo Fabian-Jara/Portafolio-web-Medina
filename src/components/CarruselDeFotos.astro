@@ -31,18 +31,19 @@ const ItemsDeCarrusel = [
   id="default-carousel"
   class="relative w-full z-0"
   data-carousel="slide"
-  data-carousel-interval="8000"
+  data-carousel-interval="80000"
 >
   <!-- Carousel -->
-  <div class="relative overflow-hidden rounded-lg h-[750px] mt-24">
+  <div class="relative overflow-hidden rounded-b-lg mt-28" id="carrusel">
     <!-- Imágenes -->
     {
-      ItemsDeCarrusel.map((Imagen) => (
+      ItemsDeCarrusel.map((Imagen, index) => (
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
             src={Imagen.img}
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt={Imagen.alt}
+            onload="ajustarAlturaCarrusel()"
           />
         </div>
       ))
@@ -116,3 +117,29 @@ const ItemsDeCarrusel = [
     </span>
   </button>
 </div>
+
+<script>
+  // Función para ajustar la altura del carrusel
+  function ajustarAlturaCarrusel() {
+    // Obtener el contenedor del carrusel
+    var carrusel = document.getElementById("carrusel");
+
+    // Verificar si el carrusel existe
+    if (carrusel) {
+      // Obtener la imagen actual dentro del carrusel
+      var imagenActual = carrusel.querySelector("img");
+
+      // Verificar si la imagen actual existe
+      if (imagenActual) {
+        // Ajustar la altura del contenedor según la altura de la imagen actual
+        carrusel.style.height = imagenActual.offsetHeight + "px";
+      }
+    }
+  }
+
+  // Llamar a la función cuando la página se carga
+  window.onload = ajustarAlturaCarrusel;
+
+  // Llamar a la función cuando se redimensiona la ventana
+  window.addEventListener("resize", ajustarAlturaCarrusel);
+</script>
