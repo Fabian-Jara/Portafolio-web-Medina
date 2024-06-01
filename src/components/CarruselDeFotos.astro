@@ -131,8 +131,15 @@ const ItemsDeCarrusel = [
 
       // Verificar si la imagen actual existe
       if (imagenActual) {
-        // Ajustar la altura del contenedor según la altura de la imagen actual
-        carrusel.style.height = imagenActual.offsetHeight + "px";
+        // Obtener la altura de la imagen actual
+        var alturaImagen = imagenActual.offsetHeight;
+
+        // Limitar la altura máxima a 750px
+        var alturaMaxima = 750;
+        var alturaFinal = Math.min(alturaImagen, alturaMaxima);
+
+        // Ajustar la altura del contenedor según la altura final
+        carrusel.style.height = alturaFinal + "px";
       }
     }
   }
